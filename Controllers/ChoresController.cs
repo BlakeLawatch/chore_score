@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+
 namespace chore_score.Controllers
 {
     [ApiController]
@@ -58,6 +60,22 @@ namespace chore_score.Controllers
                 return BadRequest(error.Message);
             }
         }
+
+        [HttpDelete("{choreId}")]
+        public ActionResult<string> DestroyChore(int choreId)
+        {
+            try
+            {
+                string message = _choresService.DestroyChore(choreId);
+                return Ok(message);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error.Message);
+            }
+        }
+
 
 
     }

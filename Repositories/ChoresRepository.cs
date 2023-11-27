@@ -1,6 +1,7 @@
 
 
 
+
 namespace chore_score.Repositories
 {
     public class ChoresRepository
@@ -30,6 +31,11 @@ namespace chore_score.Repositories
             }
             _chores.Add(choreData);
             return choreData;
+        }
+
+        internal void DestroyChore(Chore chore)
+        {
+            _chores.Remove(chore);
         }
 
         internal Chore GetChoreById(int choreId)

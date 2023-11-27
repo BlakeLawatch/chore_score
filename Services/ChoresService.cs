@@ -33,5 +33,12 @@ namespace chore_score.Services
             Chore chore = _choresRepository.CreateChore(choreData);
             return chore;
         }
+
+        internal string DestroyChore(int choreId)
+        {
+            Chore chore = GetChoreById(choreId);
+            _choresRepository.DestroyChore(chore);
+            return $"{chore.Name} has been deleted";
+        }
     }
 }
