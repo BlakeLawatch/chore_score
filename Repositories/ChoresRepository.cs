@@ -1,5 +1,6 @@
 
 
+
 namespace chore_score.Repositories
 {
     public class ChoresRepository
@@ -14,6 +15,21 @@ namespace chore_score.Repositories
                 new Chore(3, "Vacuum", 25, true),
                 new Chore(4, "Sweep", 1, false)
             ];
+        }
+
+        internal Chore CreateChore(Chore choreData)
+        {
+            Chore lastChore = _chores[_chores.Count - 1];
+            if (lastChore == null)
+            {
+                choreData.Id = 1;
+            }
+            else
+            {
+                choreData.Id = lastChore.Id + 1;
+            }
+            _chores.Add(choreData);
+            return choreData;
         }
 
         internal Chore GetChoreById(int choreId)

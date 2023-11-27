@@ -27,5 +27,11 @@ namespace chore_score.Services
             return chore;
 
         }
+
+        internal Chore CreateChore(Chore choreData)
+        {
+            Chore chore = _choresRepository.CreateChore(choreData);
+            return chore;
+        }
     }
 }
